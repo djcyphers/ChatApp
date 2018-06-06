@@ -1,6 +1,10 @@
 # ChatApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3. For use in a ## local enviroments. 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3. 
+
+## Local ChatApp
+
+This app was made for a school project. You can use this by starting the server and letting others connect to your IP address with port 3000. Just your basic chat app. Weeeee! 
 
 ## Development server
 
