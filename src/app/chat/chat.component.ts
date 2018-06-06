@@ -1,11 +1,12 @@
 import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ChatService } from '../chat.service';
 import * as io from 'socket.io-client';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
-  styleUrls: ['./chat.component.css']
+  styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit, AfterViewChecked {
 
@@ -67,6 +68,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
   sendMessage() {
     this.chatService.saveChat(this.msgData).then((result) => {
       this.socket.emit('save-message', result);
+      this.chatService.updateChat.apply(this.msgData);
     }, (err) => {
       console.log(err);
     });
