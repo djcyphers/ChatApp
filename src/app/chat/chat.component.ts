@@ -69,6 +69,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
     this.chatService.saveChat(this.msgData).then((result) => {
       this.socket.emit('save-message', result);
       this.chatService.updateChat.apply(this.msgData);
+      console.log('Message: ' + this.msgData);
     }, (err) => {
       console.log(err);
     });

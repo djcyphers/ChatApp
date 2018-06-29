@@ -51,7 +51,7 @@ export class ChatService {
 
   updateChat(id, data) {
     return new Promise((resolve, reject) => {
-        this.http.put('/chat/' + id, data)
+        this.http.post('/chat/' + id, data)
           .pipe(
           map(res => res)
           )
@@ -75,9 +75,5 @@ export class ChatService {
             reject(err);
           });
     });
-  }
-
-  private handleError(error: any): Promise<any> {
-    return Promise.reject(error.message || error);
   }
 }
