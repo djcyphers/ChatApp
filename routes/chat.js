@@ -20,12 +20,20 @@ io.on('connection', (socket) => {
   });
 });
 
-/* GET ALL CHATS */
-router.get('/:room', (req, res, next) => {
-  Chat.find({ room: req.params.room }, (err, chats) => {
-    if (err) return next(err);
+/* Get Chat Updated */
+router.route('/:room')
+.get((req, res, next) => {
+  Chat.find({ room: req.params.room})
+  .then((chats) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'applications/json');
     res.json(chats);
-  });
+  }, (err) => {
+    next(err);
+  })
+  .catch((err) => {
+    next(err);
+  })
 });
 
 /* GET SINGLE CHAT BY ID */

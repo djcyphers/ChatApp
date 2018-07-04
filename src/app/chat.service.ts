@@ -49,9 +49,10 @@ export class ChatService {
     });
   }
 
-  updateChat(id, data) {
+  updateChat(data) {
     return new Promise((resolve, reject) => {
-        this.http.post('/chat/' + id, data)
+      console.log(data.message);
+        this.http.post('/chat', data)
           .pipe(
           map(res => res)
           )
